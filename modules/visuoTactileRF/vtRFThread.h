@@ -41,7 +41,7 @@
 #include <iCub/iKin/iKinFwd.h>
 
 #include <iostream>
-#include <string>
+
 #include <stdio.h>
 #include <stdarg.h>
 #include <vector>
@@ -55,6 +55,7 @@
 #include <iCub/skinDynLib/skinContact.h>
 #include <iCub/skinDynLib/skinContactList.h>
 
+#include <iCub/vtMappingTF/vtMappingTF.h>
 
 using namespace yarp;
 using namespace yarp::os;
@@ -180,6 +181,10 @@ protected:
           
     // Stamp for the setEnvelope for the ports
     yarp::os::Stamp ts;
+
+    // vtMapping for left and right arm
+    vtMappingTF             *vtMapRight;
+    vtMappingTF             *vtMapLeft;
 
     /**
     * Locates a taxel in the World Reference Frame, given its

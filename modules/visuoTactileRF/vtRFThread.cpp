@@ -72,6 +72,10 @@ bool vtRFThread::threadInit()
 {
     bool ok = 1;
 
+    //****vtMappingTF****
+    vtMappingTF vtMapLeft(name,"left", "layer3/activation", "input_features");
+//    vtMapRight = new vtMappingTF(name,"right", "layer3/activation", "input_features");
+
     imagePortInR        -> open(("/"+name+"/imageR:i").c_str());
     imagePortInL        -> open(("/"+name+"/imageL:i").c_str());
     imagePortOutR.open(("/"+name+"/imageR:o").c_str());

@@ -4,11 +4,13 @@
 
 cmake_minimum_required(VERSION 2.8)
 
-if(COMMAND cmake_policy)
-    cmake_policy(SET CMP0003 NEW)
-endif(COMMAND cmake_policy)
+#if(COMMAND cmake_policy)
+#    cmake_policy(SET CMP0003 NEW)
+#endif(COMMAND cmake_policy)
 
 project(PPS)
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 find_package(YARP)
 find_package(ICUB)
@@ -21,6 +23,8 @@ list(APPEND CMAKE_MODULE_PATH ${ICUBCONTRIB_MODULE_PATH})
 include(ICUBcontribHelpers)
 include(ICUBcontribOptions)
 icubcontrib_set_default_prefix()
+
+find_package(TensorflowCC COMPONENTS Shared)
 
 add_definitions(${YARP_DEFINES})   # add yarp definitions - this contains also -D_REENTRANT
 include(YarpInstallationHelpers)   # pick up yarp's cmake scripts

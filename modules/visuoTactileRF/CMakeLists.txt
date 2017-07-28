@@ -11,6 +11,7 @@ file(GLOB header *.h)
 include_directories(${YARP_INCLUDE_DIRS})
 include_directories(${periPersonalSpace_INCLUDE_DIRS})
 include_directories(${OpenCV_INCLUDE_DIRS})
+include_directories(${vtMappingTF_INCLUDE_DIRS})
 
 source_group("Source Files" FILES ${source})
 source_group("Header Files" FILES ${header})
@@ -18,7 +19,7 @@ source_group("Header Files" FILES ${header})
 
 add_executable(visuoTactileRF ${source} ${header} )
 
-target_link_libraries(visuoTactileRF periPersonalSpace ${YARP_LIBRARIES} ${OpenCV_LIBRARIES})
+target_link_libraries(visuoTactileRF periPersonalSpace ${YARP_LIBRARIES} ${OpenCV_LIBRARIES} ${vtMappingTF_LIBRARIES} TensorflowCC::Shared)
 
 install(TARGETS visuoTactileRF DESTINATION bin)
 
